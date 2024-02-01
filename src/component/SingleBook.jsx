@@ -2,6 +2,7 @@ import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 import { Component } from "react"
+import CommentArea from "./CommentArea"
 
 class SingleBook extends Component {
 
@@ -12,7 +13,7 @@ class SingleBook extends Component {
     render() {
         return (
             <Col xs={6} md={4} lg={3} className={this.state.selected ? "border border-danger" : ""}>
-                <Card>
+                <Card className="h-100">
                 <Card.Img variant="top" src={this.props.singleBook.img} />
                 <Card.Body>
                 <Card.Title>{this.props.singleBook.title}</Card.Title>
@@ -20,6 +21,8 @@ class SingleBook extends Component {
                 <Button variant="dark" onClick={()=> {
                     this.setState({selected: !this.state.selected}) //l'inverso dello stato attuale
                 }}>Select</Button>
+                {/* aggiungo un short-circuit operator per fare in modo di far apparire la sezione commenti quando lo stato selected: true */}
+                {this.state.selected && (<CommentArea asin={this.props.singleBook.asin}/>)} 
                 </Card.Body>
             </Card>
         </Col>   
