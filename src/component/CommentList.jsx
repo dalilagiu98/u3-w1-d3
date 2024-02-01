@@ -1,22 +1,16 @@
 import { Component } from "react"
-import ListGroup from 'react-bootstrap/ListGroup';
-import Button from "react-bootstrap/Button"
-class CommentList extends Component {
-    
+import SingleComment from "./SingleComment"
 
+class CommentList extends Component {
 
     render() {
         return (
             <>
-                <h2>Comments</h2>
                 <ul>
                     {this.props.comments.map((comment)=> {
-                        console.log(comment)
+                        console.log("il commento è questo:",comment)
                         return (
-                            <>
-                            <ListGroup.Item key={comment._id}>{comment.comment}{comment.rate}</ListGroup.Item>
-                            <Button></Button>
-                            </>
+                            <SingleComment comment={comment} key={comment._id} asin={this.props.asin}/>
                         )
                     })}
                 </ul>

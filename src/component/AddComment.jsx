@@ -4,6 +4,7 @@ class AddComment extends Component {
  state = {
     comment: "",
     rate: 1,
+    elementId: this.props.asin,
   };
 
   addComment() {
@@ -41,11 +42,12 @@ class AddComment extends Component {
             e.preventDefault();
             this.addComment();
             }}>
-                <textarea  value={this.state.comment} onChange={(e)=> this.setState({comment: e.target.value})}/>
+                <textarea  value={this.state.comment} onChange={(e)=> this.setState({...this.state, 
+                    comment: e.target.value})}/>
                 <label>
                     Rating:
                      <input type="number" value={this.state.rate} onChange={(e)=> {
-                        this.setState({ rate: e.target.value})
+                        this.setState({ ...this.state, rate: e.target.value})
                      }}/>
                 </label>
                 <button type="submit">Add Comment</button>

@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import MyNav from "./component/MyNav";
 import Welcome from "./component/Welcome";
 import MyFooter from "./component/MyFooter";
