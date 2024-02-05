@@ -26,7 +26,7 @@ class SingleComment extends Component {
     render() {
         return (
             <div>
-                <ListGroup.Item >{this.props.comment.comment}{this.props.comment.rate}  
+                <ListGroup.Item >{this.props.comment.rate}<i className="bi bi-star-fill"></i> - {this.props.comment.comment}
                     <Button onClick={()=> {
                         // console.log(props.comment._id)
                         this.deleteComment(this.props.comment._id)

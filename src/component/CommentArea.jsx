@@ -56,7 +56,7 @@ class CommentArea extends Component {
             {this.state.isLoading && (
               <Spinner animation="border" variant="dark"></Spinner>
             )}
-            {this.state.reviews.length === 0 && this.state.isLoading === false ? (<Alert variant="dark">Nessun commento inserito</Alert>) : (<CommentList comments={this.state.reviews} asin={this.props.asin}/>)}
+            {this.state.reviews.length === 0 && this.state.isLoading === false ? (<Alert variant="dark">Nessun commento inserito</Alert>) : (<CommentList comments={this.props.comments} asin={this.props.asin}/>)}
             {/* codice del libro dove devono essere renderizzati i commenti */}
             <AddComment asin={this.props.asin}/> 
             </>

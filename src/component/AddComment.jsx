@@ -1,5 +1,6 @@
 import { Component } from "react";
-
+import Form from "react-bootstrap/Form"
+import Button from "react-bootstrap/Button"
 class AddComment extends Component {
  state = {
     comment: "",
@@ -42,15 +43,27 @@ class AddComment extends Component {
             e.preventDefault();
             this.addComment();
             }}>
-                <textarea  value={this.state.comment} onChange={(e)=> this.setState({...this.state, 
+                <Form.Control
+                  required
+                  placeholder="Lascia qui la tua recensione..."
+                  as="textarea"
+                  rows={5} value={this.state.comment} onChange={(e)=> this.setState({...this.state, 
                     comment: e.target.value})}/>
-                <label>
-                    Rating:
-                     <input type="number" value={this.state.rate} onChange={(e)=> {
-                        this.setState({ ...this.state, rate: e.target.value})
-                     }}/>
-                </label>
-                <button type="submit">Add Comment</button>
+                <h5>Rate da 1 a 5:</h5>
+                <Form.Select
+                  required
+                  value={this.state.rate} 
+                  onChange={(e)=> {
+                    this.setState({ ...this.state, rate: e.target.value})
+                 }}
+                >
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </Form.Select>
+                <Button type="submit" variant="dark">Add Comment</Button>
             </form>
       </div> 
         )
