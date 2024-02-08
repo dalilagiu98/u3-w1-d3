@@ -2,7 +2,6 @@ import Card from "react-bootstrap/Card"
 import Button from "react-bootstrap/Button"
 import Col from "react-bootstrap/Col"
 import { Component } from "react"
-import CommentArea from "./CommentArea"
 
 class SingleBook extends Component {
 
@@ -14,7 +13,7 @@ class SingleBook extends Component {
         return (
             <Col xs={6} md={4} lg={3} className={this.props.singleBook.asin === this.props.selectedAsin ? "border border-danger" : ""}>
                 <Card className="h-100">
-                <Card.Img variant="top" src={this.props.singleBook.img} />
+                <Card.Img variant="top" src={this.props.singleBook.img} alt="card-image"/>
                 <Card.Body>
                 <Card.Title>{this.props.singleBook.title}</Card.Title>
                 <Card.Text>{this.props.singleBook.price}</Card.Text>

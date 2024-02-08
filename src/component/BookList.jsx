@@ -1,4 +1,4 @@
-import Container from "react-bootstrap/esm/Container"
+import Container from "react-bootstrap/Container"
 import SingleBook from "./SingleBook"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
@@ -72,7 +72,9 @@ class BookList extends Component {
                         <Col >
                             <Row>
                                 {this.props.arrayOfBooks.filter((book)=> //l'array che arriva viene filtrato -> si vede se il titolo del libro corrente IN MINUSCOLO include il valore dell'input/stato IN MINUSCOLO ---> MODO PER CONFRONTARE DUE STRINGHE 
-                                book.title.toLowerCase().includes(this.state.inputValue.toLowerCase()))
+                                book.title.toLowerCase().includes(this.state.inputValue.toLowerCase()),
+                                console.log("numero di libri nel json:",this.props.arrayOfBooks)
+                                )
                                 .map((book)=> {
                                     return (
                                         <SingleBook singleBook={book} key={book.asin} selectedAsin={this.state.selectedAsin} changeSelectedAsin={this.changeSelectedAsin}/>
